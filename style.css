@@ -1,0 +1,149 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Roboto;
+    background-color: #EEF9BF;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.titulo {
+    position: absolute;
+    text-align: center;
+    top: 50px;
+}
+
+.titulo h1 {
+    font-family: Roboto;
+    font-weight: 700;
+    line-height: 65.63px;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+    font-size: 56px;
+}
+
+#tabuleiro-jogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Espaço entre as cartas */
+    max-width: calc(7 * 117px + 6 * 40px);
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+    background-color: #A7E9AF;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+.carta {
+    width: calc(100% / 7 - 40px);
+    width: 117px;
+    height: 146px;
+    background-color: #b2e7b2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: scale(1.05);
+    transition: transform 0.3s;
+    margin: 0;
+}
+
+.conteudo-carta {
+    width: 90%; 
+    height: 90%; 
+    background-color: #A7E9AF; 
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo-carta img,
+.face-frente img, 
+.face-verso img {
+    width: 80%; 
+    height: auto;
+    max-height: 100%; 
+    border-radius: 5px;
+}
+
+.face-frente {
+    transform: rotateY(0deg);
+    background-color: #A7E9AF; 
+}
+
+.face-verso {
+    transform: rotateY(180deg);
+    background-color: #A7E9AF;
+}
+
+.carta.virada .face-frente {
+    transform: rotateY(-180deg);
+}
+
+.carta.virada .face-verso {
+    transform: rotateY(0deg);
+}
+
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+    #tabuleiro-jogo {
+        max-width: calc(4 * 117px + 3 * 40px);
+        margin-top: 170px; 
+        margin-bottom: 40px;
+    }
+
+    .titulo h1 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 1022px) {
+    #tabuleiro-jogo {
+        max-width: calc(3 * 117px + 2 * 40px); 
+        margin-top: 170px; 
+        margin-bottom: 40px;
+    }
+
+    .titulo h1 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 568px) {
+    #tabuleiro-jogo {
+        max-width: calc(2 * 117px + 1 * 40px);
+        margin-top: 170px; 
+        margin-bottom: 40px;
+    }
+
+    .titulo h1 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 376px) {
+    #tabuleiro-jogo {
+        max-width: 177px;
+        margin-top: 170px; 
+        margin-bottom: 40px;
+    }
+
+    .titulo h1 {
+        font-size: 30px;
+    }
+}
